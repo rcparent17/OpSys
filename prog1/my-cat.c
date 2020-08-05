@@ -14,13 +14,7 @@ int main(int argc, char* argv[]){
 	}
 
 	while(fgets(buffer, maxLength, fp)){
-		for(int i = 0; i < maxLength; i++){
-			if(buffer[i]=='\0'){
-				break;
-			}
-			printf("%c", buffer[i]);
-		}
-		printf("\n");
+		printf("%s", buffer);
 	}
 
 	return 0;

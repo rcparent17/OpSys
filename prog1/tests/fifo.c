@@ -32,9 +32,7 @@ int main(char* argv[], int argc){
 	pid1 = fork();
 	if(pid1 == 0){ // same time
 		fdwr1 = open(FIFO1, O_WRONLY);
-		//printf("HELLo\n");
 		dup2(fdwr1, 1);
-		//close(fdwr1);
 		execlp("echo", "echo", toWrite, NULL); // write fifo1
 	}
 	else {
