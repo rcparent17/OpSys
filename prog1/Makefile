@@ -1,20 +1,19 @@
-shell:
-	if [ ! -d "bin" ]; then mkdir bin; fi
-	gcc myShell.c -o bin/myShell
-
-cat:
-	if [ ! -d "bin" ]; then mkdir bin; fi
-	gcc myCat.c -o bin/myCat
-
-wc:
-	if [ ! -d "bin" ]; then mkdir bin; fi
-	gcc myWC.c -o bin/myWC
-
-uniq:
-	if [ ! -d "bin" ]; then mkdir bin; fi
-	gcc myUniq.c -o bin/myUniq
-
 all: shell cat wc uniq
 
+shell: binDir
+	gcc my-shell.c -Wall -Werror -o bin/my-shell
+
+cat: binDir
+	gcc my-cat.c -Wall -Werror -o bin/my-cat
+
+wc: binDir
+	gcc my-wc.c -Wall -Werror -o bin/my-wc
+
+uniq: binDir
+	gcc my-uniq.c -Wall -Werror -o bin/my-uniq
+
 clean:
-	rm -f bin/*
+	rm -rf bin
+
+binDir:
+	if [ ! -d "bin" ]; then mkdir bin; fi
