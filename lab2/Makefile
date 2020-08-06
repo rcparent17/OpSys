@@ -1,11 +1,17 @@
-all: shell sort
+all: shell sort chat
 
+chat: binDir
+	gcc chat/server.c -Wall -Werror -o bin/server
+	gcc chat/client.c -Wall -Werror -o bin/client
 
-shell:
-	gcc myshell.c -Wall -Werror -o myshell
+shell: binDir
+	gcc myshell.c -Wall -Werror -o bin/myshell
 
-sort:
-	gcc mysort.c -Wall -Werror -o mysort
+sort: binDir
+	gcc mysort.c -Wall -Werror -o bin/mysort
 
-clean:
-	rm -f mysort myshell
+clean: 
+	rm -rf bin/
+
+binDir:
+	if [ ! -d "bin" ]; then mkdir bin; fi
